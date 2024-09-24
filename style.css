@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
+:root {
+  --c-white: #f6f6f6;
+  --c-bg: #181618;
+  --c-cursor: var(--c-white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: "Nunito", sans-serif;
+}
+
+body,
+html {
+  overflow: hidden;
+  cursor: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--c-bg);
+}
+
+svg {
+  display: none;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  filter: url("#goo");
+}
+
+.cursor span {
+  position: absolute;
+  width: 24px;
+  height: 28px;
+  border-radius: 84% 16% 30% 70% / 46% 56% 44% 54%;
+  background-color: var(--c-cursor);
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+}
+
+.main-area {
+  position: relative;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+.text {
+  font-size: clamp(2rem, calc(2rem + 3.5vw), 8rem);
+  color: var(--c-cursor);
+}
+
+.wave-effect {
+  position: absolute;
+  border: 1px solid var(--c-cursor);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  animation: wave-animation 1s ease-out;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
